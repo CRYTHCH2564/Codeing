@@ -300,7 +300,7 @@ function gettbypass($url){
   }
 
 
-function bypass($img){
+function bypass($img,$m){
 $url = 'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyC3y-Em42htSB8UEZPqptJ78rlvL58_h6Y'; // base64 encode image      
       $base64 = base64_encode(file_get_contents($img));
           $json_request = '{"requests": [{"image": {"content":"' . $base64 . '"},"features": [{"type": "TEXT_DETECTION","maxResults": 200}]}]}';    
@@ -308,15 +308,21 @@ $url = 'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyC3y-Em42htSB8
           curl_setopt($curl, CURLOPT_URL, $url);   
            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);    
            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);   
-            curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-type: application/json"));                      curl_setopt($curl, CURLOPT_POST, true);   
+            curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-type: application/json"));                     
+             curl_setopt($curl, CURLOPT_POST, true);   
              curl_setopt($curl, CURLOPT_POSTFIELDS, $json_request);  
             $json_response = curl_exec($curl);  
               $s = curl_getinfo($curl, CURLINFO_HTTP_CODE);   
                curl_close($curl);    
           //print_r($s);      
-          $con =explode('\n"',explode('"text": "Enter the following:\n', $json_response)[1])[0];   
-          $captcha = preg_replace("/[^a-zA-Z]/",'', $con);
-           return $captcha;
+          if($m==1){
+            $can=explode('"boundingPoly"',explode('"locale": "en"',$json_response)[1])[0];
+            $otw=explode('\n"',explode('"description": "Enter the following:\n',$can)[1])[0];
+            $wewe = str_replace('\n',' ',$otw);
+            return $hyu =preg_replace("/[^a-zA-Z]/","", $wewe);
+          }else{
+          return $json_response; 
+          }
 }
 
 function ocr($img){
@@ -588,7 +594,7 @@ if($name==""){echo"\r\r";}
 if(!$name==""){
 echo$white."Name".$red.":".$green.$name."\n";}
 if($bal==""){echo"\r\r";}
-if(!$bal==""){
+if(!$namewebsite==""){
 echo$white."Balance".$red.":".$green.$bal."\n";}
 echo$green2."••••••••••••••••••••••••••••••••••••••••\n";
 }
