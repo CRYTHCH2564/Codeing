@@ -594,7 +594,7 @@ if($name==""){echo"\r\r";}
 if(!$name==""){
 echo$white."Name".$red.":".$green.$name."\n";}
 if($bal==""){echo"\r\r";}
-if(!$namewebsite==""){
+if(!$bal==""){
 echo$white."Balance".$red.":".$green.$bal."\n";}
 echo$green2."••••••••••••••••••••••••••••••••••••••••\n";
 }
