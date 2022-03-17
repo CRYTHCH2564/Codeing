@@ -233,7 +233,7 @@ function timer($timer)
         if ($res < 1) {
             break;
         }
-        if ($sc>11) {
+        if ($sc>6) {
         $sc=0;
         }
         $yy=rand(1,5);
