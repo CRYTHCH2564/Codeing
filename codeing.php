@@ -652,3 +652,43 @@ exit;
                 }
                 
         
+
+
+
+
+
+
+
+function cloud_ocr($var_194){
+$var_195= [
+    "content-type: multipart/form-data; boundary=----WebKitFormBoundarywCIIkh0aAx7NUXPm",
+    "accept: application/json, text/javascript; q=0.01",
+    "x-requested-with: XMLHttpRequest"];
+$var_196=file_get_contents($var_194);
+$var_147 = "------WebKitFormBoundarywCIIkh0aAx7NUXPm\nContent-Disposition: form-data; name=\"file[]\";\nfilename=\"png.png\"\nContent-Type: image/png\n
+$var_196;
+------WebKitFormBoundarywCIIkh0aAx7NUXPm--";
+$var_200=postt("https://www.prepostseo.com/frontend/uploadImageToTextFiles",$var_147,$var_195);
+$var_203=strpos($var_200,'tmp_imgs\/');
+$var_203=substr($var_200,$var_203);
+$var_203=str_replace('tmp_imgs\/','',$var_203);
+$var_203=substr($var_203,0,strpos($var_203,'"'));
+$var_195= [
+    "content-type: application/x-www-form-urlencoded; charset=UTF-8",
+    "accept: application/json, text/javascript; q=0.01",
+    "x-requested-with: XMLHttpRequest"];
+$var_147="submit=true&imgUrl=https://www.prepostseo.com/tmp_imgs/$var_203";
+$var_121=postt("https://www.prepostseo.com/frontend/extractImgText",$var_147,$var_195);
+$var_219=strpos($var_121,'following:\n');
+$var_219=substr($var_121,$var_219);
+$var_219=str_replace('following:\n','',$var_219);
+$var_219=substr($var_219,0,strpos($var_219,'\n"'));
+$var_219=str_replace('\n','',$var_219);
+$var_219= preg_replace("/[^a-zA-Z]/", "", $var_219);
+if(strlen($var_219) > 25){}else{return $var_219;} }
+
+
+
+
+
+
