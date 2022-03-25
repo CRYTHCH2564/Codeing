@@ -110,6 +110,13 @@ function curl($url, $post = 0, $httpheader = 0, $proxy = 0)
             }
 
 /*
+//Detect special conditions devices
+$iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
+$iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+$iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+$Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+$webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
+$Desktop=stripos($_SERVER["HTTP_USER_AGENT"],"Windows");
 @error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 error_reporting(0);
 system("clear");
