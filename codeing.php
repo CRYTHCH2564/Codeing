@@ -679,10 +679,6 @@ exit;
 
 
 
-
-
-
-
 function cloud_ocr($var_194){
 $var_195= [
     "content-type: multipart/form-data; boundary=----WebKitFormBoundarywCIIkh0aAx7NUXPm",
@@ -717,7 +713,7 @@ function random_name(){
     $data=json_decode(file_get_contents($url),1);
     return $data;
   }
-function f_explode($string, $start, $end){ // source, first tag, end tag
+function f_explode($string, $start, $end,$no){ // source, first tag, end tag
         $str = explode($start, $string);
         $str = explode($end, $str["$no"]);
         return $str[0];
@@ -732,7 +728,9 @@ function f_randomstring($length = 10) { // length
     return $randomString;
 }
 
-
+function data($data){
+return http_build_query($data);
+}
 
 
 
