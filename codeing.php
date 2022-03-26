@@ -712,6 +712,27 @@ $var_219= preg_replace("/[^a-zA-Z]/", "", $var_219);
 if(strlen($var_219) > 25){}else{return $var_219;} }
 
 
+function random_name(){
+    $url="https://randomuser.me/api/?format=json";
+    $data=json_decode(file_get_contents($url),1);
+    return $data;
+  }
+function f_explode($string, $start, $end){ // source, first tag, end tag
+        $str = explode($start, $string);
+        $str = explode($end, $str["$no"]);
+        return $str[0];
+}
+function f_randomstring($length = 10) { // length
+    $characters = '0123456789ABCDEFGHIJKLMNabcdefghijklmnopqrstuvwxyz';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
+
 
 
 
