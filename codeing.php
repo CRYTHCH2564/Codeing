@@ -109,18 +109,35 @@ function curl($url, $post = 0, $httpheader = 0, $proxy = 0)
                 }
             }
 
-/*
-//Detect special conditions devices
-$iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
-$iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
-$iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
-$Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
-$webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
-$Desktop=stripos($_SERVER["HTTP_USER_AGENT"],"Windows");
-@error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-error_reporting(0);
-system("clear");
-system("cls");*/
+            function reporterror($open){
+                $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
+                $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+                $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+                $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+                $Desktop=stripos($_SERVER["HTTP_USER_AGENT"],"Windows");
+                if($open==1){
+                return @error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+                return error_reporting(0);}
+                if($iPad || $iPhone || $iPod || $Android ){
+                    system("clear");
+                }
+                if($Desktop){
+                system("cls");
+                }}
+                
+                function removefile($fille){
+                $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
+                $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+                $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+                $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+                $Desktop=stripos($_SERVER["HTTP_USER_AGENT"],"Windows");
+                if($iPad || $iPhone || $iPod || $Android ){
+                    system("rm'.$fille.'");
+                }
+                if($Desktop){
+                system("del'.$fille.'");
+                }
+                }
 
 
 
@@ -251,16 +268,14 @@ function timer($timer)
             $str = str_repeat($d1."•",$sc) . "                     \r";
         $sc=$sc+1;
         $a=date('i:s', $res);
-$vv="\r.                                  $d1 <Please $d2 Wait> $d3 $a $d4 $str                     \r";      
+$vv="\r.                   $d1 <Please $d2 Wait> $d3 $a $d4 $str                   \r";      
         echo$vv."\r";
         
         sleep(1);
     endwhile;
 }
-function captchaa($timer,$dd)
-{
+function captchaerror($timer,$captcha){
     global $green;
-    
     $timr = time() + $timer;
     $sc=0;
     while (true):
@@ -271,7 +286,7 @@ function captchaa($timer,$dd)
         if ($res < 1) {
             break;
         }
-        if ($sc>$dd) {
+        if ($sc>3) {
         $sc=0;
         }
         $yy=rand(1,5);
@@ -282,10 +297,9 @@ function captchaa($timer,$dd)
             $str = str_repeat($d1."•",$sc) . "                     \r";
         $sc=$sc+1;
         $a=date('i:s', $res);
-$vv="\r.                                 $d1 <mInvalid $d2 Captcha>    $d3 $str            \r";      
-        echo$vv."\r";
-        
-        sleep(1);
+$vv=$d2."<[ It Is Captcha ]=>".$green.$captcha;
+        echo$vv.$d3.$str."\r";
+sleep(1);
     endwhile;
 }
 
@@ -305,6 +319,9 @@ function solve(){
 function gettbypass($url){
     return curl($url,'',solve())[1];
   }
+function getbypass($url){
+return gettbypass($url);
+}
 
 
 function bypass($img,$m){
