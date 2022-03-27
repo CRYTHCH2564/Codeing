@@ -728,7 +728,7 @@ function f_randomstring($length = 10) { // length
     return $randomString;
 }
 
-function data($data){
+function f_data($data){
 return http_build_query($data);
 }
 
