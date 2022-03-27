@@ -733,5 +733,32 @@ return http_build_query($data);
 }
 
 
+function error($error){
+$timr = time() + 3;
+$sc=0;
+while (true):
+echo "\r                                                                          \r";
 
+   $res = $timr - time();
+
+if ($res < 1) {
+    break;
+}
+if ($sc>3) {
+$sc=0;
+}
+$yy=rand(1,5);
+  $d1 = color($yy);
+  $d2 = color($yy);
+  $d3 = color($yy);
+  $d4 = color($yy);
+    $str = str_repeat($d1."•",$sc) . "                     \r";
+$sc=$sc+1;
+$a=date('i:s', $res);
+$vv=$red."Error ".$error;      
+echo  $vv.$d3.  $str;
+
+sleep(1);
+endwhile;
+}
 
