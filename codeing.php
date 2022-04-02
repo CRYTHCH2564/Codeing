@@ -109,36 +109,7 @@ function curl($url, $post = 0, $httpheader = 0, $proxy = 0)
                 }
             }
 
-            function reporterror($open){
-                $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
-                $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
-                $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
-                $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
-                $Desktop=stripos($_SERVER["HTTP_USER_AGENT"],"Windows");
-                if($open==1){
-                return @error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-                return error_reporting(0);}
-                if($iPad || $iPhone || $iPod || $Android ){
-                    system("clear");
-                }
-                if($Desktop){
-                system("cls");
-                }}
-                
-                function removefile($fille){
-                $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
-                $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
-                $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
-                $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
-                $Desktop=stripos($_SERVER["HTTP_USER_AGENT"],"Windows");
-                if($iPad || $iPhone || $iPod || $Android ){
-                    system("rm'.$fille.'");
-                }
-                if($Desktop){
-                system("del'.$fille.'");
-                }
-                }
-
+            
 
 
 
