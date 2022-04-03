@@ -109,7 +109,19 @@ function curl($url, $post = 0, $httpheader = 0, $proxy = 0)
                 }
             }
 
-            
+   function reporterror($open){
+	system("cls");
+	system("clear");
+if($open==1){
+return error_reporting(0);
+return @error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+}else{
+
+}
+}
+
+function removefile($fille){
+system("del'.$fille.'");system("rm'.$fille.'");}         
 
 
 
