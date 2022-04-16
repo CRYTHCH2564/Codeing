@@ -697,10 +697,10 @@ function random_name(){
     return $data;
   }
 function f_explode($string, $start, $end,$no){ // source, first tag, end tag
-        $str = explode($start, $string);
-        $str = explode($end, $str["$no"]);
-        return $str[0];
-}
+        $str = explode($end,explode($start, $string)["$no"])[0];
+return $str;}
+
+
 function f_randomstring($length = 10) { // length
     $characters = '0123456789ABCDEFGHIJKLMNabcdefghijklmnopqrstuvwxyz';
     $charactersLength = strlen($characters);
