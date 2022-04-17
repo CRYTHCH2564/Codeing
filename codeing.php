@@ -143,6 +143,29 @@ function save($data, $data_post) {
     $arr = array_merge($json, $data_post);
     file_put_contents($data, json_encode($arr, JSON_PRETTY_PRINT));
 }
+/*if (!file_exists("data.json")) {
+
+    while ("true") {
+
+        system("clear");
+
+        $r = readline("\033[1;97mInput Your Cookie : \033[1;92m");
+
+        if (!$r == "") {
+
+            break;
+
+        }
+
+    }
+
+    $data = ["Cookie" => $r];
+
+    save("data.json", $data);
+
+}
+
+*/
 
 function strip()
 {
