@@ -555,3 +555,4 @@ function ip(){
 $ipInfo = file_get_contents("http://ip-api.com/json/");
 return $ipInfo=json_decode($ipInfo);}
 function get_data($data){return http_build_query($data);}
+function tr(){echo "\r                                                  \r";}
