@@ -127,7 +127,7 @@ function postt($url, $data, $httpheader)
     return curl($url, $data, $httpheader)[1];
 }
 //function reporterror
-function reporterror($report = 0, $removetext = 0, $file)
+function reporterror($file, $report = 0, $removetext = 0)
 {
     if ($report) {
         return error_reporting(0);
