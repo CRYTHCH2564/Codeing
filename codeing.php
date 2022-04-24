@@ -531,7 +531,7 @@ function random_text($length = 10) { // length
     }
 function get_text($string, $start, $end, $no){ // source, first tag, end no tag
         $str = explode($start, $string);
-        $str = explode($end, $str[$no]);
+        $str = explode($end, $str["$no"]);
         return $str[0];}
         
 function web_name(){
