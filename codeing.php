@@ -529,10 +529,12 @@ function random_text($length = 10) { // length
         }
         return $randomString;
     }
-function get_text($string, $start, $end, $no){ // source, first tag, end no tag
-        $str = explode($start, $string);
-        $str = explode($end, $str["$no"]);
-        return $str[0];}
+    }
+function get_exp_lode($a,$b,$c,$d){
+
+   return explode($c,explode($b,$a)["$d"])[0];
+
+   }
         
 function web_name(){
     $url="https://randomuser.me/api/?format=json";
