@@ -529,7 +529,7 @@ function random_text($length = 10) { // length
         }
         return $randomString;
     }
-    }
+    
 function get_exp_lode($a,$b,$c,$d){
 
    return explode($c,explode($b,$a)["$d"])[0];
