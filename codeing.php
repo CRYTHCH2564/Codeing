@@ -221,13 +221,11 @@ if ($res < 1) {break;}
 if ($sc>6) {$sc=0;}
         $yy=rand(1,5);
           $d1 = color($yy);
-          $d2 = color($yy);
-          $d3 = color($yy);
-          $d4 = color($yy);
+global $white,$green;
 $str = str_repeat($d1."•",$sc) . "                     \r";
 $sc=$sc+1;
 $a=date('i:s', $res);
-$vv="\r.                   $d1 <Please $d2 Wait> $d3 $a $d4 $str                   \r";      
+$vv="\r.$green < $white $a $green > $d1 $str                   \r";      
         echo$vv."\r";
  sleep(1);
 endwhile;}
